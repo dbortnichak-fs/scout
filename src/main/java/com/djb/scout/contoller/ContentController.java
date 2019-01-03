@@ -71,8 +71,6 @@ public class ContentController {
                 }
                 int startOfTitle = result.indexOf(">",result.indexOf("<title")) + 1;
                 int endOfTitle = result.indexOf("</title>", startOfTitle);
-                System.out.println("Start index = "+startOfTitle);
-                System.out.println("End index = "+endOfTitle);
                 title = result.substring(startOfTitle, endOfTitle);
 
             }

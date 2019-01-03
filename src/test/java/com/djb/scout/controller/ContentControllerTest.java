@@ -26,7 +26,7 @@ public class ContentControllerTest {
     Content mockContent;
     User mockUser;
 
-    @BeforeClass
+    @Before
     public void executedOnce() {
         mockUser = new User();
         mockUser.setId(1L);
