@@ -9,6 +9,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -45,6 +46,36 @@ public class User {
 
     @Column(length = 255)
     private String email;
+
+    @OneToMany(mappedBy = "user",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private List<Content> contents;
+
+    public void addContent(Content content) {
+        contents.add(content);
+        content.setUser(this);
+    }
+
+    public void removeContent(Content content) {
+        contents.remove(content);
+        content.setUser(null);
+    }
+
+    @OneToMany(mappedBy = "id.user",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private List<Follower> followers;
+
+    public void addFollower(Follower follower) {
+        followers.add(follower);
+        follower.getId().setUser(this);
+    }
+
+    public void removeFollower(Follower follower) {
+        followers.remove(follower);
+        follower.getId().setUser(null);
+    }
 
     public Long getId() {
         return id;
