@@ -40,4 +40,6 @@ public class UserEntityTest {
         this.thrown.expect(ConstraintViolationException.class);
         this.testEntityManager.persistAndFlush(mockMissingPasswordUser);
     }
+
+
 }

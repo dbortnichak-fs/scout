@@ -36,7 +36,7 @@ public class ContentControllerTest {
         mockContent = new Content();
         mockContent.setTitle("Example Title");
         mockContent.setUrl("http://www.exmaple.com");
-        mockContent.setUserId(mockUser.getId());
+      //  mockContent.getId().(mockUser);
 
         String exampleJson = "{\"id\": 9,\"userId\": 1,\"createdAt\": \"2019-01-03T16:10:47.000+0000\",\"url\": \"https://www.earthworkdesign.com/\"," +
                 "\"title\": \"Garden Design Construction &amp; Landscape | Yardley | Earth Work Design\"," +
